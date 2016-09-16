@@ -1,0 +1,46 @@
+@model IS356Main.Models.Presentations
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Presentations</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Presenters)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Presenters)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.pLink)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.pLink)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.pPicture)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.pPicture)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.pTitle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.pTitle)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <a asp-controller="Admin" asp-action="Index">Back to List</a>
+        </div>
+    </form>
+</div>

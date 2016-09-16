@@ -1,0 +1,85 @@
+@model IS356Main.Models.Groups
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+<form asp-action="Create">
+    <div class="form-horizontal">
+        <h4>Groups</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="groupName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="groupName" class="form-control" />
+                <span asp-validation-for="groupName" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="logoLink" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="logoLink" class="form-control" />
+                <span asp-validation-for="logoLink" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="memberOne" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="memberOne" class="form-control" />
+                <span asp-validation-for="memberOne" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="memberTwo" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="memberTwo" class="form-control" />
+                <span asp-validation-for="memberTwo" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="memberThree" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="memberThree" class="form-control" />
+                <span asp-validation-for="memberThree" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="memberFour" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="memberFour" class="form-control" />
+                <span asp-validation-for="memberFour" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="memberFive" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="memberFive" class="form-control" />
+                <span asp-validation-for="memberFive" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="siteLink" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="siteLink" class="form-control" />
+                <span asp-validation-for="siteLink" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-controller="Admin" asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

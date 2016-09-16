@@ -1,0 +1,42 @@
+@model IS356Main.Models.Presentations
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Presentations</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Presenters)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Presenters)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.pLink)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.pLink)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.pPicture)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.pPicture)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.pTitle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.pTitle)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a asp-controller="Admin" asp-action="Index">Back to List</a>
+</div>

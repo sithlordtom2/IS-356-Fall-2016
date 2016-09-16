@@ -1,0 +1,30 @@
+﻿@model IEnumerable<IS356Main.Models.Contact>
+@{
+    ViewData["Title"] = "Contact";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
+@foreach(var item in Model)
+{
+    <div class="col-md-6">
+        <div style="float:left; width:220px; height:237px; margin-right:15px">
+            <a href=@Url.Content(item.siteLink) target="_blank"><img src=@Url.Content(item.pictureLink) style="width:220px; height:237px" /></a>
+        </div>
+        <h4>@Html.DisplayFor(Model => item.Title)</h4>
+        <p>@Html.DisplayFor(Model => item.Name)</p>
+        <address>
+            @Html.DisplayFor(Model => item.Location)<br />
+            @Html.DisplayFor(Model => item.streetAddress)<br />
+            @Html.DisplayFor(Model => item.City), @Html.DisplayFor(Model => item.State) @Html.DisplayFor(Model => item.zipCode)<br />
+            <abbr title="Phone">P:</abbr>
+            @Html.DisplayFor(Model => item.phoneNumber) <br />
+            <abbr title="Email">E:</abbr>
+            @Html.DisplayFor(Model => item.emailAddress)
+        </address>
+    </div>
+}
+<br />
+<br />
+<div class="row">
+
+</div>

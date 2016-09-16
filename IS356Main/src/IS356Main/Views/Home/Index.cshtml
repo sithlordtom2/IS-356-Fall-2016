@@ -1,0 +1,53 @@
+﻿@model IEnumerable<IS356Main.Models.Groups>
+@{
+    ViewData["Title"] = "Home";
+}
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+    <div class="carousel-inner" role="listbox">
+        @foreach (var item in Model)
+        {
+            if (item.logoLink == "null")
+            {
+                <div class="item">
+                   <a href=@Url.Content(item.siteLink) target="_blank"><img src="http://placehold.it/1140x360" /></a>
+                </div>
+            }
+            else
+            {
+                if (item.ID == 1)
+                {
+                    <div class="item active">
+                        <a href=@Url.Content(item.siteLink) target="_blank"><img src=@Url.Content(item.logoLink) /></a>
+                    </div>
+                }
+                else
+                {
+                    <div class="item">
+                        <a href=@Url.Content(item.siteLink) target="_blank"><img src=@Url.Content(item.logoLink) /></a>
+                    </div>
+                }
+            }
+        }
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+@foreach(var item in Model)
+{
+    <div class="col-md-4" style="text-align:center">
+        <h2><a href=@Url.Content(item.siteLink) target="_blank">@Html.DisplayFor(Model => item.groupName)</a></h2>
+        <ul style="list-style:none; padding-left:0">
+            <li>@Html.DisplayFor(Model => item.memberOne)</li>
+            <li>@Html.DisplayFor(Model => item.memberTwo)</li>
+            <li>@Html.DisplayFor(Model => item.memberThree)</li>
+            <li>@Html.DisplayFor(Model => item.memberFour)</li>
+            <li>@Html.DisplayFor(Model => item.memberFive)</li>
+        </ul>
+    </div>
+}

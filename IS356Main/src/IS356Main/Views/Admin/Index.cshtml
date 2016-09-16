@@ -1,0 +1,163 @@
+﻿@model IS356Main.Models.Admin
+@{ 
+    ViewData["Title"] = "Admin";
+}
+<h2>Admin Control Panel</h2>
+<div>
+    <ul class="nav nav-tabs">
+        <li><a data-toggle="tab" href="#tab-groups"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Groups</a></li>
+        <li><a data-toggle="tab" href="#tab-contacts">Contact Info</a></li>
+        <li><a data-toggle="tab" href="#tab-links">Links</a></li>
+        <li><a data-toggle="tab" href="#tab-presents">Presentations</a></li>
+    </ul>
+    <div class="tab-content">
+        <div id="tab-groups" class="tab-pane fade in active">
+            <table class="table">
+                <tr>
+                    <th>
+                        Group Number
+                    </th>
+                    <th>
+                        Group Name
+                    </th>
+                    <th>
+                        Group Site Link
+                    </th>
+                    <th>
+                        <a asp-controller="Groups" asp-action="Create" class="btn btn-default">Create</a>
+                    </th>
+                </tr>
+                @foreach(var item in Model.listGroups)
+                {
+                    <tr>
+                        <td>
+                            @item.ID
+                        </td>
+                        <td>
+                            @item.groupName
+                        </td>
+                        <td>
+                            @item.siteLink
+                        </td>
+                        <td>
+                            <a asp-controller="Groups" asp-action="Edit" asp-route-id="@item.ID" class="btn btn-primary">Edit</a> |
+                            <a asp-controller="Groups" asp-action="Details" asp-route-id="@item.ID" class="btn btn-info">Details</a> |
+                            <a asp-controller="Groups" asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+        <div id="tab-contacts" class="tab-pane fade">
+            <table class="table">
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Phone Number
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                    <th>
+                        <a asp-controller="Contacts" asp-action="Create" class="btn btn-default">Create</a>
+                    </th>
+                </tr>
+                @foreach (var item in Model.listContacts)
+                {
+                    <tr>
+                        <td>
+                            @item.Name
+                        </td>
+                        <td>
+                            @item.phoneNumber
+                        </td>
+                        <td>
+                            @item.emailAddress
+                        </td>
+                        <td>
+                            <a asp-controller="Contacts" asp-action="Edit" asp-route-id="@item.ID" class="btn btn-primary">Edit</a> |
+                            <a asp-controller="Contacts" asp-action="Details" asp-route-id="@item.ID" class="btn btn-info">Details</a> |
+                            <a asp-controller="Contacts" asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+        <div id="tab-links" class="tab-pane fade">
+            <table class="table">
+                <tr>
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                        Link
+                    </th>
+                    <th>
+                        <a asp-controller="Links" asp-action="Create" class="btn btn-default">Create</a>
+                    </th>
+                </tr>
+                @foreach (var item in Model.listLinks)
+                {
+                    <tr>
+                        <td>
+                            @item.ID
+                        </td>
+                        <td>
+                            @item.Title
+                        </td>
+                        <td>
+                            @item.link
+                        </td>
+                        <td>
+                            <a asp-controller="Links" asp-action="Edit" asp-route-id="@item.ID" class="btn btn-primary">Edit</a> |
+                            <a asp-controller="Links" asp-action="Details" asp-route-id="@item.ID" class="btn btn-info">Details</a> |
+                            <a asp-controller="Links" asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+        <div id="tab-presents" class="tab-pane fade">
+            <table class="table">
+                <tr>
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                        Presenters
+                    </th>
+                    <th>
+                        Link
+                    </th>
+                    <th>
+                        <a asp-controller="Presentations" asp-action="Create" class="btn btn-default">Create</a>
+                    </th>
+                </tr>
+                @foreach (var item in Model.listPresentations)
+                {
+                    <tr>
+                        <td>
+                            @item.pTitle
+                        </td>
+                        <td>
+                            @item.Presenters
+                        </td>
+                        <td>
+                            @item.pLink
+                        </td>
+                        <td>
+                            <a asp-controller="Presentations" asp-action="Edit" asp-route-id="@item.ID" class="btn btn-primary">Edit</a> |
+                            <a asp-controller="Presentations" asp-action="Details" asp-route-id="@item.ID" class="btn btn-info">Details</a> |
+                            <a asp-controller="Presentations" asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

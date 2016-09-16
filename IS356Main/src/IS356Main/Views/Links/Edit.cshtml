@@ -1,0 +1,50 @@
+@model IS356Main.Models.Links
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<form asp-action="Edit">
+    <div class="form-horizontal">
+        <h4>Links</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="ID" />
+        <div class="form-group">
+            <label asp-for="Title" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="link" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="link" class="form-control" />
+                <span asp-validation-for="link" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="linkPicture" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="linkPicture" class="form-control" />
+                <span asp-validation-for="linkPicture" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-controller="Admin" asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
